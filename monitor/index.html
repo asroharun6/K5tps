@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Penghitungan Suara</title>
+	  <link rel="stylesheet" href="style.css">
+
+   <style>
+        /* Style Umum */
+        body, html {
+          margin: 0;
+          padding: 0;
+          font-family: Arial, sans-serif;
+          height: 100%;
+        }
+
+        .container {
+          position: relative;
+          z-index: 2; /* Pastikan konten di atas video */
+          padding: 20px;
+        }
+
+        /* Gaya untuk Judul dan Deskripsi */
+        h1 {
+          font-size: 2em; /* Ukuran default untuk h1 */
+        }
+
+        h2 {
+          font-size: 1.5em; /* Ukuran default untuk h2 */
+        }
+
+        /* Responsivitas */
+        @media (max-width: 768px) {
+          h1 {
+            font-size: 1.5em; /* Ukuran lebih kecil untuk h1 pada layar mobile */
+          }
+
+          h2 {
+            font-size: 1.2em; /* Ukuran lebih kecil untuk h2 pada layar mobile */
+          }
+
+          .charts-container {
+            flex-direction: column;
+          }
+
+          .chart, table {
+            width: 100%;
+            margin-top: 20px;
+          }
+
+          table {
+            display: block;
+            overflow-x: auto;
+          }
+        }
+
+        /* Fullscreen Video Background */
+        .video-background {
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          overflow: hidden;
+          z-index: -1;
+          display: flex;
+          justify-content: center; /* Center video horizontally */
+          align-items: center; /* Center video vertically */
+        }
+
+        video {
+          min-width: 100%;
+          min-height: 100%;
+          object-fit: cover;
+        }
+
+        button#enable-sound {
+          background-color: #4CAF50; /* Warna hijau */
+          color: white;
+          padding: 14px 20px;
+          margin: 10px 0;
+          border: none;
+          cursor: pointer;
+        }
+
+        button#enable-sound:hover {
+          background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="video-background">
+        <video playsinline="playsinline" autoplay muted loop id="videoBackground">
+            <!-- Source diisi oleh JavaScript -->
+        </video>
+    </div>
+    <div class="container">
+	<h1 style="
+    BACKGROUND: azure;
+">Hasil Penghitungan Suara Pemilu 2024 PPLN Dubai </h1>
+
+        <button id="enable-sound">Aktifkan Notifikasi Suara</button>
+        <div class="charts-container">
+            <div class="chart">
+                <h2>Bar Chart: Suara Sah vs Tidak Sah</h2>
+                <canvas id="barChart"></canvas>
+            </div>
+            <div class="chart">
+                <h2>Daftar Kandidat dan Suara</h2>
+                <table id="candidateList">
+                    <thead>
+                        <tr>
+                            <th>Nama Kandidat</th>
+                            <th>Suara Sah</th>
+                            <th>Suara Tidak Sah</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Baris kandidat akan ditambahkan di sini -->
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <th>Total</th>
+                            <th id="totalValidVotes">0</th>
+                            <th id="totalInvalidVotes">0</th>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+        </div>
+    </div>
+    <audio id="audio-element" src="notification.wav" preload="auto"></audio>
+    <script src="dashboard.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var videoSources = ["video/pplndubai2024.mp4", "", ""];
+            var videoCount = videoSources.length;
+            var videoElement = document.getElementById('videoBackground');
+            var randomIndex = Math.floor(Math.random() * videoCount);
+            videoElement.src = videoSources[randomIndex];
+        });
+    </script>
+</body>
+</html>

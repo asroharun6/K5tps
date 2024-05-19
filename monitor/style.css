@@ -1,0 +1,147 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 90%;
+    margin: auto;
+    overflow: hidden;
+}
+
+.charts-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+
+.chart {
+    flex: 1;
+    min-width: 300px;
+    margin: 10px;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.result-info {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.left-column, .right-column {
+    flex: 1;
+}
+
+.left-column {
+    border-right: 2px solid #eee;
+    padding-right: 20px;
+    margin-right: 20px;
+}
+
+.right-column {
+    padding-left: 20px;
+}
+
+@media (max-width: 600px) {
+    .result-info {
+        flex-direction: column;
+    }
+    .left-column {
+        border-right: none;
+        border-bottom: 2px solid #eee;
+        padding-bottom: 20px;
+        margin-bottom: 20px;
+        padding-right: 0;
+        margin-right: 0;
+    }
+    .right-column {
+        padding-top: 20px;
+    }
+}
+.totals-container {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.totals-container h2 {
+    font-size: 2rem; /* Besar judul */
+    margin-bottom: 10px;
+}
+
+#totals div {
+    font-size: 1.5rem; /* Besar font total suara */
+    margin: 5px 0;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 80%;
+    margin: auto;
+    overflow: hidden;
+}
+
+h1 {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.charts-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.chart {
+    margin: 20px;
+    padding: 20px;
+    background: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+table, th, td {
+    border: 1px solid #ddd;
+}
+
+th, td {
+    padding: 10px;
+    text-align: center;
+}
+
+th {
+    background-color: #4CAF50;
+    color: white;
+}
+
+tfoot th {
+    background-color: #555;
+}
+
+tfoot th, tfoot td {
+    font-weight: bold;
+}
+
+audio {
+    display: none;
+}
+
