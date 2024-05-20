@@ -1,11 +1,12 @@
 <?php
-    include '../db.php';
+include '../db.php';
 
-    session_start();
-    if (!isset($_SESSION['user_id'])) {
-        header('Location: ../login.php');
-        exit;
-    }
+session_start();
+if (!isset($_SESSION['user_id'])) {
+    header('Location: ../login.php');
+    exit;
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -17,6 +18,7 @@
     <link rel="stylesheet" href="css/users_styles.css">
     <link rel="stylesheet" href="css/add_users_styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+      <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
     <div class="container">
@@ -28,6 +30,7 @@
                 <ul>
                     <li><a href="#dashboard" class="menu-item active"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
                     <li><a href="#settings" class="menu-item"><i class="fas fa-chart-bar"></i> Number Of Votes</a></li>
+                     <li><a href="#suara" class="menu-item"><i class="fas fa-list"></i> Suara</a></li>
                     <li><a href="#users" class="menu-item"><i class="fas fa-users"></i> Users</a></li>
                 </ul>
             </nav>
@@ -42,10 +45,16 @@
             <section class="content">
                 <div id="dashboard" class="section">
                     <h2>Dashboard</h2>
-                    <p>belum ada keterangan</p>
+                 <p><?php include "hasil.php" ?></p>
+
+                   
+                  
                 </div>
                 <div id="users" class="section" style="display: none;">
                     <div><?php include "users.php" ?></div>
+                </div>
+                   <div id="suara" class="section" style="display: none;">
+                    <div><?php include "suara.php" ?></div>
                 </div>
                 <div id="settings" class="section" style="display: none;">
                     <div><?php include "numberVotes.php" ?></div>
@@ -53,6 +62,7 @@
             </section>
         </main>
     </div>
+
     <script src="js/script.js"></script>
 </body>
 </html>
