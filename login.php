@@ -7,7 +7,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['username'], $_POST['pa
     $password = $_POST['password']; // Kata sandi yang dimasukkan pengguna
 
     // Query untuk mendapatkan data pengguna
-    $query = "SELECT id, name, username, password, tps_no, ksk_no FROM users WHERE username = ?";
+    $query = "SELECT id, name, username, password, tps_no, ksk_no, role FROM users WHERE username = ?";
     if ($stmt = $conn->prepare($query)) {
         $stmt->bind_param("s", $username);
         $stmt->execute();
@@ -24,7 +24,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['username'], $_POST['pa
                 $_SESSION['ksk_no'] = $userInfo['ksk_no'];
 
                 // Redirect pengguna ke halaman berikutnya
-                header("Location: dashboard.php");
+                if($userInfo['role'] == 1){
+                    header("Location: admin/index.php");
+                }else{
+                    header("Location: dashboard.php");
+                }
                 exit();
             } else {
                 $error = "Username atau password salah.";

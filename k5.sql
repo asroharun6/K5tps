@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.1
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 19, 2024 at 11:37 AM
--- Server version: 10.4.32-MariaDB
--- PHP Version: 8.2.12
+-- Waktu pembuatan: 20 Bulan Mei 2024 pada 15.16
+-- Versi server: 10.4.22-MariaDB
+-- Versi PHP: 7.4.27
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,19 +24,19 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `isvalid`
+-- Struktur dari tabel `isvalid`
 --
 
 CREATE TABLE `isvalid` (
   `id` int(11) NOT NULL,
   `SuaraSah` int(11) DEFAULT 1,
   `SuaraTidakSah` int(11) DEFAULT 0
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `jumlah_suara`
+-- Struktur dari tabel `jumlah_suara`
 --
 
 CREATE TABLE `jumlah_suara` (
@@ -44,32 +44,20 @@ CREATE TABLE `jumlah_suara` (
   `Jumlah_pemilih` decimal(32,0) DEFAULT NULL,
   `Metode` varchar(50) DEFAULT NULL,
   `Lokasi` varchar(50) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `jumlah_suara`
+-- Dumping data untuk tabel `jumlah_suara`
 --
 
 INSERT INTO `jumlah_suara` (`id`, `Jumlah_pemilih`, `Metode`, `Lokasi`) VALUES
-(1, 0, '1', 'Dubai'),
-(2, 0, '2', 'Dubai'),
-(3, 5, '3', 'Dubai'),
-(4, 2, '4', 'Dubai'),
-(5, 3, '5', 'Dubai'),
-(6, 2, '6', 'Dubai'),
-(7, 0, '7', 'Dubai'),
-(8, 0, '8', 'Dubai'),
-(9, 0, '9', 'Ras Al Khaimah'),
-(10, 0, '10', 'Fujairah dan Umm Al Quwain'),
-(11, 0, '11', 'Sharjah, Ajman, dan Dubai'),
-(12, 0, '12', 'Sharjah'),
-(13, 100, '13', 'Bandung'),
-(14, 75, '25', 'Bandung');
+(20, '99', 'TPS002', 'Dubai'),
+(21, '0', 'TPS001', 'Bandung');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `kandidat`
+-- Struktur dari tabel `kandidat`
 --
 
 CREATE TABLE `kandidat` (
@@ -77,10 +65,10 @@ CREATE TABLE `kandidat` (
   `nama` varchar(100) NOT NULL,
   `partai_id` int(11) DEFAULT NULL,
   `foto` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `kandidat`
+-- Dumping data untuk tabel `kandidat`
 --
 
 INSERT INTO `kandidat` (`id`, `nama`, `partai_id`, `foto`) VALUES
@@ -91,19 +79,19 @@ INSERT INTO `kandidat` (`id`, `nama`, `partai_id`, `foto`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `partai`
+-- Struktur dari tabel `partai`
 --
 
 CREATE TABLE `partai` (
   `id` int(11) NOT NULL,
   `nama` varchar(100) NOT NULL,
   `foto` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `suara`
+-- Struktur dari tabel `suara`
 --
 
 CREATE TABLE `suara` (
@@ -113,10 +101,10 @@ CREATE TABLE `suara` (
   `is_valid` tinyint(4) NOT NULL DEFAULT 1,
   `tps_no` varchar(10) DEFAULT NULL,
   `ksk_no` varchar(10) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `suara`
+-- Dumping data untuk tabel `suara`
 --
 
 INSERT INTO `suara` (`id`, `kandidat_id`, `timestamp`, `is_valid`, `tps_no`, `ksk_no`) VALUES
@@ -127,7 +115,7 @@ INSERT INTO `suara` (`id`, `kandidat_id`, `timestamp`, `is_valid`, `tps_no`, `ks
 -- --------------------------------------------------------
 
 --
--- Table structure for table `suara_partai`
+-- Struktur dari tabel `suara_partai`
 --
 
 CREATE TABLE `suara_partai` (
@@ -137,12 +125,12 @@ CREATE TABLE `suara_partai` (
   `is_valid` tinyint(4) NOT NULL DEFAULT 1,
   `tps_no` varchar(10) DEFAULT NULL,
   `ksk_no` varchar(10) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `users`
+-- Struktur dari tabel `users`
 --
 
 CREATE TABLE `users` (
@@ -153,132 +141,135 @@ CREATE TABLE `users` (
   `tps_no` varchar(10) DEFAULT NULL,
   `ksk_no` varchar(1) DEFAULT NULL,
   `email` varchar(50) DEFAULT NULL,
-  `userpic` mediumblob DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+  `userpic` mediumblob DEFAULT NULL,
+  `role` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `users`
+-- Dumping data untuk tabel `users`
 --
 
-INSERT INTO `users` (`id`, `name`, `username`, `password`, `tps_no`, `ksk_no`, `email`, `userpic`) VALUES
-(2, 'DEV', 'admin', 'Z0ya$2021', '', NULL, '', NULL),
-(19, 'TPSLN 01', 'tps1', 'tps1', '1', NULL, NULL, NULL),
-(20, 'TPSLN 02', 'tps2', 'tps2', '2', NULL, NULL, NULL),
-(21, 'TPS 03', 'tps3', 'tps3', '3', '', NULL, NULL);
+INSERT INTO `users` (`id`, `name`, `username`, `password`, `tps_no`, `ksk_no`, `email`, `userpic`, `role`) VALUES
+(1, 'Administrator', 'admin', 'admin', NULL, NULL, NULL, NULL, 1),
+(32, 'Asro', 'asro', 'asro', 'TPS001', NULL, NULL, NULL, 0),
+(33, 'nurdhiat', 'nurdhiat', 'nurdhiat', 'TPS002', NULL, NULL, NULL, 0),
+(34, 'malik', 'malik', 'malik', 'TPS003', NULL, NULL, NULL, 0),
+(35, 'Lelita', 'lelita', 'lelita', 'TPS004', NULL, NULL, NULL, 0),
+(39, 'Hedi', 'hedi', 'hedi', 'TPS005', NULL, NULL, NULL, 0);
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indexes for table `isvalid`
+-- Indeks untuk tabel `isvalid`
 --
 ALTER TABLE `isvalid`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `jumlah_suara`
+-- Indeks untuk tabel `jumlah_suara`
 --
 ALTER TABLE `jumlah_suara`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `kandidat`
+-- Indeks untuk tabel `kandidat`
 --
 ALTER TABLE `kandidat`
   ADD PRIMARY KEY (`id`),
   ADD KEY `partai_id` (`partai_id`);
 
 --
--- Indexes for table `partai`
+-- Indeks untuk tabel `partai`
 --
 ALTER TABLE `partai`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `suara`
+-- Indeks untuk tabel `suara`
 --
 ALTER TABLE `suara`
   ADD PRIMARY KEY (`id`),
   ADD KEY `kandidat_id` (`kandidat_id`);
 
 --
--- Indexes for table `suara_partai`
+-- Indeks untuk tabel `suara_partai`
 --
 ALTER TABLE `suara_partai`
   ADD PRIMARY KEY (`id`),
   ADD KEY `partai_id` (`partai_id`);
 
 --
--- Indexes for table `users`
+-- Indeks untuk tabel `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT untuk tabel yang dibuang
 --
 
 --
--- AUTO_INCREMENT for table `isvalid`
+-- AUTO_INCREMENT untuk tabel `isvalid`
 --
 ALTER TABLE `isvalid`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `jumlah_suara`
+-- AUTO_INCREMENT untuk tabel `jumlah_suara`
 --
 ALTER TABLE `jumlah_suara`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
--- AUTO_INCREMENT for table `kandidat`
+-- AUTO_INCREMENT untuk tabel `kandidat`
 --
 ALTER TABLE `kandidat`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT for table `partai`
+-- AUTO_INCREMENT untuk tabel `partai`
 --
 ALTER TABLE `partai`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT for table `suara`
+-- AUTO_INCREMENT untuk tabel `suara`
 --
 ALTER TABLE `suara`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3278;
 
 --
--- AUTO_INCREMENT for table `suara_partai`
+-- AUTO_INCREMENT untuk tabel `suara_partai`
 --
 ALTER TABLE `suara_partai`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT for table `users`
+-- AUTO_INCREMENT untuk tabel `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
 
 --
--- Constraints for dumped tables
+-- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
 --
 
 --
--- Constraints for table `kandidat`
+-- Ketidakleluasaan untuk tabel `kandidat`
 --
 ALTER TABLE `kandidat`
   ADD CONSTRAINT `kandidat_ibfk_1` FOREIGN KEY (`partai_id`) REFERENCES `partai` (`id`) ON DELETE SET NULL ON UPDATE NO ACTION;
 
 --
--- Constraints for table `suara`
+-- Ketidakleluasaan untuk tabel `suara`
 --
 ALTER TABLE `suara`
   ADD CONSTRAINT `suara_ibfk_1` FOREIGN KEY (`kandidat_id`) REFERENCES `kandidat` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION;
 
 --
--- Constraints for table `suara_partai`
+-- Ketidakleluasaan untuk tabel `suara_partai`
 --
 ALTER TABLE `suara_partai`
   ADD CONSTRAINT `suara_partai_ibfk_1` FOREIGN KEY (`partai_id`) REFERENCES `partai` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION;

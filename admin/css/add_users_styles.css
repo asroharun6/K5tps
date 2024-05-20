@@ -1,0 +1,89 @@
+.modal {
+    display: none; 
+    position: fixed; 
+    z-index: 1; 
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%; 
+    overflow: auto;
+    background-color: rgba(0,0,0,0.4); 
+}
+
+.modal-content {
+    background-color: #fff;
+    margin: 10% auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    width: 50%;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.form-group {
+    margin-bottom: 20px;
+    display: inline-block;
+    width: 49.5%;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.form-group input, .form-group select {
+    width: calc(100% - 16px);
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.button-group {
+    margin-top: 20px;
+    text-align: right;
+}
+
+.submit-button, .reset-button, .close-button {
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin-left: 5px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.reset-button:hover, .submit-button:hover, .close-button:hover {
+    background-color: #504f4f;
+}
+
+.reset-button:focus, .submit-button:focus, .close-button:focus {
+    outline: none;
+}
+
+.form-group label {
+    color:#333333;
+}
+
+.reset-button, .close-button {
+    background-color: #222222;
+}
