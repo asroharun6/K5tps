@@ -119,9 +119,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['username'], $_POST['pa
 <body>
     <div class="container">
         <div class="header">
-            <img src="images/logo.png" alt="Logo" style="height: 80px;"> <!-- Sesuaikan path ke logo Anda -->
-            <h3>QUICK COUNT</h3>
-        </div>
+         
+            <!-- Sesuaikan path ke logo Anda -->
+          </p>
+          <p>&nbsp; </p>
+          <h3>QUICK COUNT</h3>
+      </div>
 
         <div class="login-container">
             <div class="login-box">
